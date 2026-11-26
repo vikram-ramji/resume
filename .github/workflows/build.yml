@@ -1,0 +1,29 @@
+name: Build resume PDF
+
+on:
+  push:
+    paths: [resume.tex, .github/workflows/build.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended
+      - name: Build
+        run: make
+      - name: Fail if longer than one page
+        run: test "$(pdfinfo resume.pdf | awk '/Pages/{print $2}')" = "1"
+      - name: Commit PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f resume.pdf
+          git diff --cached --quiet || git commit -m "Rebuild resume.pdf" && git push

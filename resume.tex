@@ -1,0 +1,116 @@
+\documentclass[letterpaper,10.5pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{empty}
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Margins
+\addtolength{\oddsidemargin}{-0.55in}
+\addtolength{\evensidemargin}{-0.55in}
+\addtolength{\textwidth}{1.1in}
+\addtolength{\topmargin}{-0.6in}
+\addtolength{\textheight}{1.2in}
+
+% Section headings
+\titleformat{\section}{\vspace{-6pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule\vspace{-4pt}]
+
+% ATS: make ligatures and special glyphs copy as plain text
+\pdfgentounicode=1
+
+% Custom commands
+\newcommand{\resumeItem}[1]{\item\small{#1\vspace{-1pt}}}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-6pt}
+}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.2in, itemsep=1.5pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    {\Huge \scshape Vikram Ramji Iyer} \\ \vspace{3pt}
+    \small +91 8686127721 $|$ \href{mailto:vikramramji24@gmail.com}{vikramramji24@gmail.com} $|$
+    \href{https://linkedin.com/in/vikram-ramji-iyer}{linkedin.com/in/vikram-ramji-iyer} $|$
+    \href{https://github.com/vikram-ramji}{github.com/vikram-ramji} \\
+    \small Hyderabad, India
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {SuperClaims AI}{Mar 2026 -- Present}
+    {Software Engineer}{Hyderabad, India}
+  \vspace{2pt}\item[] \small\textit{AI platform that adjudicates health-insurance claims end to end for insurers and third-party administrators.}\vspace{-4pt}
+    \resumeItemListStart
+      \resumeItem{\textbf{Built the claims pipeline end to end}: LLM agents that extract, reconcile and adjudicate mixed-format claim documents (scanned, handwritten and messy multi-document PDFs) against \textbf{policies and tariffs}, through coverage rules and deductions to the final payable amount. Run it in production at \textbf{3,000+ claims a day}.}
+      \resumeItem{\textbf{Designed straight-through processing} that approves \textbf{80\% of claims with no human reviewer}; for the rest, better extraction and a new review workspace cut reviewer time from 15--20 min to \textbf{under 1 min}.}
+      \resumeItem{\textbf{Optimised the claims pipeline}, cutting processing time from 10--15 min to \textbf{2--3 min per claim}.}
+      \resumeItem{Built \textbf{checkpoint-and-resume on Temporal}, so a failed run restarts from the step that failed instead of starting over, cutting retry time and LLM cost by \textbf{over 60\%}.}
+      \resumeItem{\textbf{Integrated insurers, TPAs and brokers} including \textbf{FHPL, ABHI, Marsh and Ekincare}, adapting claim intake, adjudication rules and result delivery to each client's workflow.}
+      \resumeItem{\textbf{Sole frontend engineer} on the ground-up rebuild of the claims platform: \textbf{designed and built the entire frontend} (React 19, TypeScript, TanStack, Zustand, Tailwind) with a feature-based, layered architecture and an AGENTS.md convention that keeps AI-assisted development consistent.}
+      \resumeItem{\textbf{Own day-to-day production support}: debug failures through logs, Temporal worker traces, the database and Langfuse; ship hotfixes; support reviewers and clients; \textbf{review pull requests} from teammates and AI agents.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages}: TypeScript, JavaScript, Python, SQL, HTML, CSS/SCSS \\
+    \textbf{AI / LLM}: LangGraph, LangChain, Langfuse (tracing), multi-agent orchestration, multimodal document extraction, structured outputs, guardrails, prompt engineering, agent evals, LLM cost optimisation \\
+    \textbf{Backend \& Data}: Node.js, Express, FastAPI, SQLAlchemy, PostgreSQL, Alembic, MongoDB, Temporal, Celery \\
+    \textbf{Frontend}: React 19, Next.js, Vite, TanStack Router/Query, Zustand, React Hook Form, Zod, Tailwind, shadcn/ui \\
+    \textbf{Tools}: Claude Code, Codex, Hermes, Git, GitHub Actions, Docker, Sentry, pytest, Vitest, Biome, Ruff
+  }}
+\end{itemize}
+
+%-----------PROJECTS-----------
+\section{Projects}
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {\textbf{Frame Order -- Video Frame Reordering} $|$ \emph{Python, NumPy, numba, OpenCV, Docker}}{\href{https://github.com/vikram-ramji/frame-order}{\underline{GitHub}}}
+    \resumeItemListStart
+      \resumeItem{Reorders shuffled video frames with a robust frame distance and a \textbf{numba-compiled shortest-path search}: \textbf{97.9\%} of neighbouring frames correct on \textbf{48 held-out videos} of real footage it never saw.}
+      \resumeItem{Infers playback direction from \textbf{video-codec traces} with a linear model built to be exactly antisymmetric under time reversal: \textbf{73\%} of 892 shots vs 50\% chance, under leave-one-clip-out testing on \textbf{249 re-encodings}.}
+      \resumeItem{Runs offline on CPU, 4,000 frames in 33 s; chunked computation cut peak memory from \textbf{5.6 GB to 1.2 GB}. Failure modes and negative results documented.}
+    \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Loyola Academy}{Secunderabad, India}
+    {Bachelor of Science in Computer Science and Artificial Intelligence}{2022 -- 2025}
+\resumeSubHeadingListEnd
+
+\end{document}
