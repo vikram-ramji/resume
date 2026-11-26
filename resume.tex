@@ -71,13 +71,12 @@
     {Software Engineer}{Hyderabad, India}
   \vspace{2pt}\item[] \small\textit{AI platform that adjudicates health-insurance claims end to end for insurers and third-party administrators.}\vspace{-4pt}
     \resumeItemListStart
-      \resumeItem{\textbf{Built the claims pipeline end to end}: LLM agents that extract, reconcile and adjudicate mixed-format claim documents (scanned, handwritten and messy multi-document PDFs) against \textbf{policies and tariffs}, through coverage rules and deductions to the final payable amount. Run it in production at \textbf{3,000+ claims a day}.}
-      \resumeItem{\textbf{Designed straight-through processing} that approves \textbf{80\% of claims with no human reviewer}; for the rest, better extraction and a new review workspace cut reviewer time from 15--20 min to \textbf{under 1 min}.}
-      \resumeItem{\textbf{Optimised the claims pipeline}, cutting processing time from 10--15 min to \textbf{2--3 min per claim}.}
-      \resumeItem{Built \textbf{checkpoint-and-resume on Temporal}, so a failed run restarts from the step that failed instead of starting over, cutting retry time and LLM cost by \textbf{over 60\%}.}
-      \resumeItem{\textbf{Integrated insurers, TPAs and brokers} including \textbf{FHPL, ABHI, Marsh and Ekincare}, adapting claim intake, adjudication rules and result delivery to each client's workflow.}
-      \resumeItem{\textbf{Sole frontend engineer} on the ground-up rebuild of the claims platform: \textbf{designed and built the entire frontend} (React 19, TypeScript, TanStack, Zustand, Tailwind) with a feature-based, layered architecture and an AGENTS.md convention that keeps AI-assisted development consistent.}
-      \resumeItem{\textbf{Own day-to-day production support}: debug failures through logs, Temporal worker traces, the database and Langfuse; ship hotfixes; support reviewers and clients; \textbf{review pull requests} from teammates and AI agents.}
+      \resumeItem{Built the claims pipeline end to end: LLM agents that extract, reconcile and adjudicate mixed-format claim documents (scanned, handwritten and multi-document PDFs) against policies and tariffs, through coverage rules and deductions to the final payable amount. Runs in production at \textbf{3,000+ claims a day}.}
+      \resumeItem{Designed straight-through processing that approves \textbf{80\% of claims} with no human reviewer; for the rest, better extraction and a new review workspace cut reviewer time from 15--20 min to \textbf{under 1 min}.}
+      \resumeItem{Cut processing time from 10--15 min to \textbf{2--3 min per claim}, and built checkpoint-and-resume on Temporal so a failed run restarts from the step that failed instead of starting over, cutting retry time and LLM cost by \textbf{over 60\%}.}
+      \resumeItem{Integrated insurers, TPAs and brokers including FHPL, ABHI, Marsh and Ekincare, adapting claim intake, adjudication rules and result delivery to each client's workflow.}
+      \resumeItem{Sole frontend engineer on the ground-up rebuild of the claims platform: designed and built the entire frontend (React 19, TypeScript, TanStack, Zustand, Tailwind) with a feature-based, layered architecture and an AGENTS.md convention that keeps AI-assisted development consistent.}
+      \resumeItem{Own production support: debug failures through logs, Temporal worker traces and Langfuse, ship hotfixes, and review pull requests from teammates and AI agents.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -85,8 +84,8 @@
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
   \small{\item{
-    \textbf{Languages}: TypeScript, JavaScript, Python, SQL, HTML, CSS/SCSS \\
-    \textbf{AI / LLM}: LangGraph, LangChain, Langfuse (tracing), multi-agent orchestration, multimodal document extraction, structured outputs, guardrails, prompt engineering, agent evals, LLM cost optimisation \\
+    \textbf{Languages}: TypeScript, JavaScript, Python, SQL \\
+    \textbf{AI / LLM}: LangGraph, LangChain, Langfuse (tracing), multi-agent orchestration, multimodal document extraction, structured outputs, agent evals, LLM cost optimisation \\
     \textbf{Backend \& Data}: Node.js, Express, FastAPI, SQLAlchemy, PostgreSQL, Alembic, MongoDB, Temporal, Celery \\
     \textbf{Frontend}: React 19, Next.js, Vite, TanStack Router/Query, Zustand, React Hook Form, Zod, Tailwind, shadcn/ui \\
     \textbf{Tools}: Claude Code, Codex, Hermes, Git, GitHub Actions, Docker, Sentry, pytest, Vitest, Biome, Ruff
@@ -99,9 +98,9 @@
   \resumeProjectHeading
     {\textbf{Frame Order -- Video Frame Reordering} $|$ \emph{Python, NumPy, numba, OpenCV, Docker}}{}
     \resumeItemListStart
-      \resumeItem{Reorders shuffled video frames with a robust frame distance and a \textbf{numba-compiled shortest-path search}: \textbf{97.9\%} of neighbouring frames correct on \textbf{48 held-out videos} of real footage it never saw.}
-      \resumeItem{Infers playback direction from \textbf{video-codec traces} with a linear model built to be exactly antisymmetric under time reversal: \textbf{73\%} of 892 shots vs 50\% chance, under leave-one-clip-out testing on \textbf{249 re-encodings}.}
-      \resumeItem{Runs offline on CPU, 4,000 frames in 33 s; chunked computation cut peak memory from \textbf{5.6 GB to 1.2 GB}. Failure modes and negative results documented.}
+      \resumeItem{Restores the original order of shuffled video frames: \textbf{97.9\%} of neighbouring frames correct on 48 held-out real-world videos, using a robust frame-similarity measure and a numba-compiled shortest-path search.}
+      \resumeItem{Detects whether a clip is playing forwards or backwards from traces left by the video codec: \textbf{73\%} accuracy on 892 shots (chance is 50\%), with each clip held out of training in turn.}
+      \resumeItem{Runs offline on CPU, 4,000 frames in \textbf{33 s}; chunked computation cut peak memory from \textbf{5.6 GB to 1.2 GB}. Failure modes and negative results documented.}
     \resumeItemListEnd
 \resumeSubHeadingListEnd
 
